@@ -67,6 +67,7 @@
   check_mode: false
 
 - name: propagate official thanos binary
+  diff: false
   copy:
     src: "/tmp/thanos-{{ thanos_version }}.linux-{{ go_arch }}/thanos"
     dest: "{{ thanos_binary_install_dir }}/thanos"

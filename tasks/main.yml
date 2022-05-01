@@ -47,13 +47,11 @@
     - restart thanos changed services
   register: __copied_thanos_services
 
-- debug:
-    msg: "{{ __copied_thanos_services }}"
-
 - name: Flush handlers
   meta: flush_handlers
 
 - name: Enable and start Thanos services
+  diff: false
   systemd:
     name: "thanos-{{ item.name }}.service"
     state: started
