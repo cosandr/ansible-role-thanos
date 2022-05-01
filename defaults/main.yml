@@ -64,6 +64,8 @@ __thanos_services:
 
   - name: compact
     services: "{{ compact_services }}"
+    raw_args:
+      - "--wait"
     args:
       "http-address": "{{ compact_http_address }}"
       "data-dir": "{{ thanos_work_dir }}/compact"

@@ -16,6 +16,9 @@ ExecStart={{ thanos_binary_install_dir }}/thanos {{ item.name }} \
 {% for e in item.endpoints | default([]) %}
   --endpoint={{ e }} \
 {% endfor %}
+{% for a in item.raw_args | default([]) %}
+  {{ a }} \
+{% endfor %}
   --log.level={{ item.log_level | default(thanos_log_level) }}
 Restart=always
 ExecReload=/bin/kill -HUP $MAINPID
