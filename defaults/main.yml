@@ -80,13 +80,3 @@ __thanos_services:
       "http-address": "{{ query_http_address }}"
       "grpc-address": "{{ query_grpc_address }}"
     endpoints: "{{ query_endpoints }}"
-
-# sidecar --http-address=127.0.0.1:19191 --grpc-address=127.0.0.1:10901 --prometheus.url=http://localhost:9090 --tsdb.path=/var/lib/prometheus --objstore.config-file=/etc/thanos/bucket_config.yml
-
-# mkdir -p /var/lib/thanos
-
-# store --http-address=127.0.0.1:19192 --grpc-address=127.0.0.1:10902 --data-dir=/var/lib/thanos/store --objstore.config-file=/etc/thanos/bucket_config.yml
-
-# compact --http-address 127.0.0.1:19193 --data-dir /var/lib/thanos/compact --objstore.config-file=/etc/thanos/bucket_config.yml --retention.resolution-raw=14d --retention.resolution-5m=90d --retention.resolution-1h=1000d
-
-# query --http-address 0.0.0.0:19194 --grpc-address=127.0.0.1:10904 --store 127.0.0.1:10901 --store 127.0.0.1:10902
